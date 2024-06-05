@@ -1,0 +1,1 @@
+export const apiEndpoint = "https://restcountries.com/v3.1/all"
