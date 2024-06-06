@@ -27,13 +27,14 @@ export const CountryListSection: FC<TProps> = ({
 
     setDisplayedData(
       countries?.filter((country: TCountries) => {
-        return country.name.common
+        return country.name
           ?.toLowerCase()
           .includes(searchValue?.toLowerCase() || "");
       })
     );
   };
 
+  console.log(displayedData);
   return (
     <ScreenSection
       id="countryList"
@@ -45,8 +46,13 @@ export const CountryListSection: FC<TProps> = ({
     >
       {isLoading ? (
         <Flex direction="vertical" className="gap-4">
-          <VscLoading className="animate-spin duration-50 text-main-800" size={"15rem"} />
-          <Header level={3} className="text-main-800">Loading...</Header>
+          <VscLoading
+            className="animate-spin duration-50 text-main-800"
+            size={"15rem"}
+          />
+          <Header level={3} className="text-main-800">
+            Loading...
+          </Header>
         </Flex>
       ) : (
         <>

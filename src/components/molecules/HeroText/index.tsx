@@ -28,7 +28,7 @@ export const HeroText: FC<TProps> = ({
         <BodyText>{titleDesc}</BodyText>
       </Flex>
       <a href={buttonLink}>
-        <Button size="md" iconPosition="right" iconElement={<BsArrowRight />}>
+        <Button btnSize="md" iconPosition="right" iconElement={<BsArrowRight />}>
           {buttonText}
         </Button>
       </a>

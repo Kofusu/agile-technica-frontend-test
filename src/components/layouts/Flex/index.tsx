@@ -6,6 +6,7 @@ type TProps = {
   justify?: "center" | "start" | "end" | "between" | "around";
   items?: "center" | "start" | "end" | "stretch";
   direction?: "vertical" | "horizontal";
+  onClick?: () => void
   className?: string;
 };
 
@@ -14,10 +15,12 @@ export const Flex: FC<TProps> = ({
   className,
   justify = "center",
   items = "center",
-  direction = "horizontal"
+  direction = "horizontal",
+  onClick
 }) => {
   return (
     <div
+    onClick={onClick}
       className={cn(
         "flex gap-0",
         // Justify
