@@ -5,7 +5,7 @@ type TProps = InputHTMLAttributes<HTMLButtonElement> & {
   className?: string;
   iconElement?: ReactElement;
   iconPosition?: "left" | "right";
-  size?: "sm" | "md" | "lg";
+  btnSize?: "sm" | "md" | "lg";
   children?: ReactNode | string | ReactElement;
   variant?: "main" | "secondary";
 };
@@ -16,7 +16,7 @@ export const Button: FC<TProps> = (
     children,
     iconElement,
     iconPosition = "left",
-    size = "sm",
+    btnSize = "sm",
     variant = "main",
   },
   ...restProps
@@ -32,9 +32,9 @@ export const Button: FC<TProps> = (
         variant === "main" && "bg-main-700 text-main-100",
         variant === "secondary" && "bg-neutral-900 text-neutral-200",
         // Size
-        size === "sm" && "px-4 py-0.5 text-base",
-        size === "md" && "px-8 py-2 text-lg",
-        size === "lg" && "px-12 py-4 text-2xl",
+        btnSize === "sm" && "px-4 py-0.5 text-base",
+        btnSize === "md" && "px-8 py-2 text-lg",
+        btnSize === "lg" && "px-12 py-4 text-2xl",
         className
       )}
       {...restProps}
