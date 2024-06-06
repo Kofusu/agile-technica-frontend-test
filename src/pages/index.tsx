@@ -5,11 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { TCountries } from "../types";
 import { getCountriesRequest } from "../api";
 
+
 const HomePage = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["countryList"],
     queryFn: getCountriesRequest,
-  }) as { data: TCountries[] };
+  });
 
   return (
     <main>
@@ -18,7 +19,7 @@ const HomePage = () => {
       </Suspense>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <CountryListSection countries={data} />
+        <CountryListSection countries={data as TCountries[]} isLoading={isLoading} />
       </Suspense>
     </main>
   );
