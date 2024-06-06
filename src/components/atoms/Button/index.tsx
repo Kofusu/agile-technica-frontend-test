@@ -1,27 +1,30 @@
-import { FC, ReactElement, ReactNode } from "react";
+import { FC, InputHTMLAttributes, ReactElement, ReactNode } from "react";
 import { cn } from "../../../utils";
 
-type TProps = {
+type TProps = InputHTMLAttributes<HTMLButtonElement> & {
   className?: string;
   iconElement?: ReactElement;
   iconPosition?: "left" | "right";
   size?: "sm" | "md" | "lg";
-  children?: ReactNode;
+  children?: ReactNode | string | ReactElement;
   variant?: "main" | "secondary";
 };
 
-export const Button: FC<TProps> = ({
-  className,
-  children,
-  iconElement,
-  iconPosition = 'left',
-  size = "sm",
-  variant = "main",
-}) => {
+export const Button: FC<TProps> = (
+  {
+    className,
+    children,
+    iconElement,
+    iconPosition = "left",
+    size = "sm",
+    variant = "main",
+  },
+  ...restProps
+) => {
   return (
     <button
       className={cn(
-        "flex justify-center items-center rounded-lg hover:bg-opacity-90 hover:scale-105 active:bg-opacity-75 active:scale-95",
+        "flex shadow-xl justify-center items-center rounded-lg hover:bg-opacity-90 hover:scale-105 active:bg-opacity-75 active:scale-95",
         // Icon
         iconElement || children ? "gap-2" : "",
         iconPosition === "left" ? "flex-row" : "flex-row-reverse",
@@ -34,6 +37,7 @@ export const Button: FC<TProps> = ({
         size === "lg" && "px-12 py-4 text-2xl",
         className
       )}
+      {...restProps}
     >
       {iconElement && iconElement}
       {children}
