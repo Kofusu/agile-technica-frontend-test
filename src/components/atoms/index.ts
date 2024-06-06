@@ -1,5 +1,5 @@
 export * from './Button'
-export * from './ScreenSection'
 export * from './BodyText'
 export * from './Header'
 export * from './Image'
+export * from './Input'

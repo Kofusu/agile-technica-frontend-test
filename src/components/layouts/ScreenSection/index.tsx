@@ -24,13 +24,13 @@ export const ScreenSection: FC<TProps> = ({
     <section
       id={id}
       className={cn(
-        "min-h-screen flex justify-center items-center bg-cover bg-center text-neutral-200",
+        "min-h-screen flex justify-center items-center bg-cover bg-center text-neutral-200 overflow-hidden",
         bg ?? `bg-hero-img`
       )}
     >
       <div
         className={cn(
-          "h-full min-h-screen w-full flex container p-4 overflow-hidden",
+          "h-full min-h-screen w-full flex container p-4 md:p-8 overflow-hidden",
           // Items
           items === "center" && "items-center",
           items === "start" && "items-start",

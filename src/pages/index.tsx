@@ -1,45 +1,25 @@
-import { BsArrowRight } from "react-icons/bs";
-import {
-  BodyText,
-  Button,
-  Header,
-  Image,
-  ScreenSection,
-} from "../components/atoms";
-import { Flex } from "../components/layouts";
-import { Link } from "react-router-dom";
+import { Suspense } from "react";
+import { HeroSection } from "../components/organisms/HeroSection";
+import { CountryListSection } from "../components/organisms";
+import { useQuery } from "@tanstack/react-query";
+import { TCountries } from "../types";
+import { getCountriesRequest } from "../api";
 
 const HomePage = () => {
+  const { data } = useQuery({
+    queryKey: ["countryList"],
+    queryFn: getCountriesRequest,
+  }) as { data: TCountries[] };
+
   return (
     <main>
-      <ScreenSection
-        justify="around"
-        direction="vertical"
-        className="md:flex-row"
-      >
-        <Flex direction="vertical" items="start" justify='end' className="flex-1 gap-6">
-          <Flex direction="vertical" items="start">
-            <Header level={1}>Countries List</Header>
-            <BodyText>by Hendratara Pratama</BodyText>
-          </Flex>
-          <Link to="#countryList">
-            <Button
-              size="md"
-              iconPosition="right"
-              iconElement={<BsArrowRight />}
-            >
-              Country List
-            </Button>
-          </Link>
-        </Flex>
-        <Flex className="flex-1">
-          <Image
-            src="/images/world-map.png"
-            alt="worldMap"
-            className="h-96 w-96 hover:scale-105"
-          />
-        </Flex>
-      </ScreenSection>
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeroSection />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <CountryListSection countries={data} />
+      </Suspense>
     </main>
   );
 };

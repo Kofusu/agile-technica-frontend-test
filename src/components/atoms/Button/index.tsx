@@ -23,7 +23,7 @@ export const Button: FC<TProps> = ({
       className={cn(
         "flex justify-center items-center rounded-lg hover:bg-opacity-90 hover:scale-105 active:bg-opacity-75 active:scale-95",
         // Icon
-        iconElement ? "gap-2" : "",
+        iconElement || children ? "gap-2" : "",
         iconPosition === "left" ? "flex-row" : "flex-row-reverse",
         // Variant
         variant === "main" && "bg-main-700 text-main-100",
