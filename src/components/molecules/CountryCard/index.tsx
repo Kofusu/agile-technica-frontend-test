@@ -27,7 +27,7 @@ export const CountryCard: FC<TProps> = ({ country }) => {
       <Image
         src={cn(country?.flags?.svg)}
         alt={country?.flags?.alt}
-        className="flex-1 rounded-2xl group-hover:animate-pulse group-hover:scale-125 cursor-pointer"
+        className="flex-1 rounded-2xl w-full group-hover:animate-pulse group-hover:scale-125 cursor-pointer"
       />
       <Flex
         direction="vertical"
