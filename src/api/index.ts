@@ -1,1 +1,1 @@
-export default () => "API"
+export * from './getCountriesRequest'
