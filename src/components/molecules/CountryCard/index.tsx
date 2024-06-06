@@ -44,19 +44,24 @@ export const CountryCard: FC<TProps> = ({ country }) => {
           </BodyText>
         </Flex>
 
-        <BodyText className="text-inherit transition-none">
-          <span className="font-bold">Population:</span>{" "}
-          {country?.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        <BodyText className="text-inherit transition-none text-sm ">
+          <Header level={3} className="text-xl text-inherit">
+            Population:
+          </Header>
+          {country?.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+          People
         </BodyText>
 
         <BodyText className="text-inherit transition-none">
-          <span className="font-bold">Currencies:</span>
+          <Header level={3} className="text-xl text-inherit">
+            Currencies:
+          </Header>
           {currenciesKeys?.map((currency, index) => (
             <Flex
               items="start"
               justify="start"
               key={`country-currency-${currency}-${index}`}
-              className="gap-2"
+              className="gap-2 text-sm text-[0.75rem]"
             >
               <span className="font-bold">
                 {currency} {currenciesValues[index]?.symbol}
