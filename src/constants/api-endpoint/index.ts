@@ -1,4 +1,4 @@
-export const baseUrl = "https://restcountries.com/v3.1/all"
-export const endpointFields = "?fields=name,flags,population,currencies,region"
+export const baseUrl = "https://restcountries.com/"
+export const endpointFields = "v3.1/all?fields=name,flags,population,currencies,region"
 
 export const apiEndpoint = `${baseUrl}${endpointFields}`
